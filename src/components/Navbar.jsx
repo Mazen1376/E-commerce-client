@@ -123,10 +123,11 @@ const Navbar = () => {
 
       {/* Slide Down Mobile Menu Drawer */}
       {isMobileMenuOpen && (
-        <div className="mobile-only glass" style={{ 
+        <div className="mobile-only" style={{ 
             display: 'flex', flexDirection: 'column', gap: '1.5rem', padding: '1.5rem', 
-            position: 'absolute', top: '100%', left: '0', width: '100%', borderTop: '1px solid var(--border-color)',
-            zIndex: 99
+            position: 'absolute', top: '100%', left: '0', width: '100%', 
+            background: 'var(--bg-color)', borderBottom: '1px solid var(--border-color)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.2)', zIndex: 99
           }}>
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
