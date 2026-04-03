@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Color Palette (Dark Default) */
+  --bg-color: #0b0c10;
+  --surface-color: #1f2833;
+  --surface-light: rgba(31, 40, 51, 0.6);
+  --primary: #45a29e;
+  --primary-hover: #66fcf1;
+  --text-primary: #ffffff;
+  --text-secondary: #c5c6c7;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --error: #ff4c4c;
+  --success: #00e676;
+
+  /* Typography */
+  --font-main: 'Outfit', sans-serif;
+  --font-size-base: 16px;
+
+  /* Effects */
+  --glass-bg: rgba(31, 40, 51, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --blur: blur(16px);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+[data-theme='light'] {
+  --bg-color: #f7f9fa;
+  --surface-color: #ffffff;
+  --surface-light: rgba(255, 255, 255, 0.8);
+  --primary: #2b6c68;
+  --primary-hover: #45a29e;
+  --text-primary: #121619;
+  --text-secondary: #5a6872;
+  --border-color: rgba(0, 0, 0, 0.08);
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --glass-shadow: 0 8px 32px rgba(69, 162, 158, 0.1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Typography styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  transition: color 0.4s ease;
+}
+
+h1 { font-size: 3rem; letter-spacing: -1px; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.5rem; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* Layout Utilities */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Glassmorphism Classes */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.glass-card {
+  background: var(--surface-light);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(102, 252, 241, 0.1);
+  border-color: var(--primary);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, #2b6c68 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(69, 162, 158, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 252, 241, 0.4);
+  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
+  color: #0b0c10;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: rgba(69, 162, 158, 0.1);
+  color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(69, 162, 158, 0.2);
+  background: var(--bg-color);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0;
+}
+
+.navbar-content {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-link {
+  position: relative;
+  font-weight: 500;
+  font-size: 1.05rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.nav-link.active {
+  color: var(--primary-hover);
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-hover);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.nav-icon-btn:hover {
+  background: var(--surface-light);
+  border-color: var(--primary);
+  color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.logo-text {
+  font-size: 2rem;
+  letter-spacing: -1.5px;
+  font-weight: 800;
+  background: -webkit-linear-gradient(45deg, var(--text-primary) 30%, var(--primary-hover));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+/* Page titles */
+.page-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  background: -webkit-linear-gradient(45deg, var(--text-primary), var(--primary-hover));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
